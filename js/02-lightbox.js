@@ -11,14 +11,17 @@ gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 function createGaleryItems(galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
         return `
-        <a class="gallery__link" href="${original}">
-          <img
-            class="gallery__image"
-            src="${preview}"
-            data-source="${original}"
-            alt="${description}"
-          />
-        </a>
+        <li class="gallery__item">
+          <a class="gallery__link" href="${original}">
+            <img
+              class="gallery__image"
+              src="${preview}"
+              data-source="${original}"
+              alt="${description}"
+            />
+          </a>
+        </li>
+        
         `;
     }).join('');
 };
@@ -26,8 +29,9 @@ function createGaleryItems(galleryItems) {
 const lightboxSlider = new SimpleLightbox('.gallery a ', {
     sourceAttr: 'href',
     captions: true,
-    captionsData: 'title',
-    captionPosition: 'bottom',
+    captionsData: 'alt',
+    captionPosition: 'top',
+    captionDelay: 250,
     captionDelay: 250,
     loop: true,
     overlayOpacity: 0.6,
