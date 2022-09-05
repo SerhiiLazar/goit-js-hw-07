@@ -27,14 +27,9 @@ function createGaleryItems(galleryItems) {
 };
 
 const lightboxSlider = new SimpleLightbox('.gallery a ', {
-    sourceAttr: 'href',
     captions: true,
     captionsData: 'alt',
-    captionPosition: 'top',
     captionDelay: 250,
-    captionDelay: 250,
-    loop: true,
-    overlayOpacity: 0.6,
-    close: false,
-    animationSpeed: 250,
+    captionPosition: 'bottom',
+    close: true,
 });
